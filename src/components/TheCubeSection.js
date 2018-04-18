@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 const Side = styled.div`
   opacity: ${props => props.active ? 1 : 0.2};
-  /* background-image: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.7), transparent); */
   background: rgba(255, 255, 255, 0.5);
   width: 100%;
   height: 100%;
@@ -55,7 +54,7 @@ const Back = styled(Side)`
 const Section = styled.div`
   width: 100%;
   transform-style: preserve-3d;
-  transform: translate3d(0, 0, 0) rotateY(${props => {
+  transform: rotateY(${props => {
     switch (props.side) {
       case 'left':
         return '-90deg'
@@ -65,6 +64,8 @@ const Section = styled.div`
         return '90deg'
       case 'back':
         return '180deg'
+      default:
+        return '0deg'
     }
   }});
   transition: transform 0.5s;

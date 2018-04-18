@@ -30,26 +30,26 @@ class TheCube extends React.Component {
       <TheCubeWrapper>
         <Header
           side={this.props.side}
-          border="bottom"
-          left="contact.me"
-          right="my.work"
-          front="who.am.i"
-          back="my.friends"
+          border='bottom'
+          left='contact.me'
+          right='my.work'
+          front='who.am.i'
+          back='my.friends'
         />
         <MainSection
           side={this.props.side}
-          left="text about my contacts"
-          right="text about my work"
+          left='text about my contacts'
+          right='text about my work'
           front={<AboutMe />}
-          back="text about my friends"
+          back='text about my friends'
         />
         <Footer
           side={this.props.side}
-          border="top"
-          left="Если я не отвечаю, я сплю ;)"
-          right="Моя работа - это я."
-          front="Я видел разное дерьмо..."
-          back="Люди, с которыми я работаю тащат!"
+          border='top'
+          left='Если я не отвечаю, я сплю ;)'
+          right='Моя работа - это я.'
+          front='Я видел разное дерьмо...'
+          back='Люди, с которыми я работаю тащат!'
         />
       </TheCubeWrapper>
     )

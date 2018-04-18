@@ -11,7 +11,7 @@ const AppWrapper = styled.div`
 `
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <Provider store={store}>
         <AppWrapper>
@@ -21,8 +21,8 @@ class App extends Component {
           </CubeContainer>
         </AppWrapper>
       </Provider>
-    );
+    )
   }
 }
 
-export default App;
+export default App
