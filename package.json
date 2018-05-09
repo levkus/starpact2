@@ -9,6 +9,7 @@
     "@fortawesome/fontawesome-pro-regular": "^5.0.10",
     "@fortawesome/fontawesome-pro-solid": "^5.0.10",
     "@fortawesome/react-fontawesome": "0.0.18",
+    "moment": "^2.22.1",
     "normalize.css": "^8.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",

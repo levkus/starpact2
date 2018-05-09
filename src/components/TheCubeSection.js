@@ -2,36 +2,39 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Side = styled.div`
-  opacity: ${props => props.active ? 1 : 0.2};
-  background: rgba(255, 255, 255, 0.5);
+  opacity: ${props => props.active ? 1 : 0.3};
+  color: ${props => props.active ? 'inherit' : 'rgba(0, 0, 0, 0)'};
   width: 100%;
   height: 100%;
   position: absolute;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.5s;
+  transition: 0.5s;
+  background-image: ${props => props.main ? 'radial-gradient(circle at top, rgba(35, 28, 37, 0.7) 20%, rgba(35, 28, 37, 0) 60%)' : 'none'};
+  background-position: top center;
 
   &:before {
     position: absolute;
-    display: ${props => props.border === 'top' ? 'block' : 'none'};
+    display: ${props => props.border.indexOf('top') > -1 ? 'block' : 'none'};
     content: '';
     top: 0;
     left: 0;
     width: 100%;
     height: 1px;
-    background-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.5) 50%, transparent);
+    background-image: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.5) 50%, transparent);
   }
 
   &:after {
     position: absolute;
-    display: ${props => props.border === 'bottom' ? 'block' : 'none'};
+    display: ${props => props.border.indexOf('bottom') > -1 ? 'block' : 'none'};
     content: '';
     bottom: 0;
     left: 0;
     width: 100%;
     height: 1px;
-    background-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.5) 50%, transparent);
+    background-image: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.5) 50%, transparent);
   }
 `
 
@@ -54,6 +57,7 @@ const Back = styled(Side)`
 const Section = styled.div`
   width: 100%;
   transform-style: preserve-3d;
+  will-change: transform;
   transform: rotateY(${props => {
     switch (props.side) {
       case 'left':
@@ -71,12 +75,12 @@ const Section = styled.div`
   transition: transform 0.5s;
 `
 
-const CubeSection = ({ className, border, side, left, front, right, back }) => (
+const CubeSection = ({ className, border, side, left, front, right, back, main }) => (
   <Section side={side} className={className}>
-    <Left border={border} active={side === 'left'}>{left}</Left>
-    <Front border={border} active={side === 'front'}>{front}</Front>
-    <Right border={border} active={side === 'right'}>{right}</Right>
-    <Back border={border} active={side === 'back'}>{back}</Back>
+    <Left main={main} border={border} active={side === 'left'}>{left}</Left>
+    <Front main={main} border={border} active={side === 'front'}>{front}</Front>
+    <Right main={main} border={border} active={side === 'right'}>{right}</Right>
+    <Back main={main} border={border} active={side === 'back'}>{back}</Back>
   </Section>
 )
 

@@ -1,25 +1,31 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from '../store/store'
 import CubeContainer from './CubeContainer'
 import TheCube from './TheCube'
 import Nav from './Nav'
 
-const AppWrapper = styled.div`
-  background: white;
-`
+const CubeWithNav = () => (
+  <React.Fragment>
+    <Nav />
+    <CubeContainer>
+      <TheCube />
+    </CubeContainer>
+  </React.Fragment>
+)
 
 class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <AppWrapper>
-          <Nav />
-          <CubeContainer>
-            <TheCube />
-          </CubeContainer>
-        </AppWrapper>
+        <Router>
+          <Switch>
+            <Route exact path='/' component={() => <Redirect to='/about' />} />
+            <Route path='/:section' component={CubeWithNav} />
+            <Redirect to='/about' />
+          </Switch>
+        </Router>
       </Provider>
     )
   }

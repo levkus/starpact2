@@ -1,4 +1,11 @@
 body {
-  font-family: 'Anonymous Pro', monospace;
+  background-image: linear-gradient(0deg,#181d21,#0f091c);
+  background-attachment: fixed;
+  color: #c2deff;
   font-size: 14px;
+  font-family: Roboto Mono,monospace;
+}
+
+#starfield {
+  position: fixed;
 }

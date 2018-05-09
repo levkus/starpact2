@@ -1,7 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
-import * as uiActions from '../store/ui'
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import styled from 'styled-components'
 
 const NavWrapper = styled.div`
@@ -11,51 +10,52 @@ const NavWrapper = styled.div`
   z-index: 100;
   font-family: 'Oswald', sans-serif;
   font-size: 1.2rem;
+  bottom: 20px;
+  width: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-flow: column;
 `
 
-const Link = styled.button`
+const StyledLink = styled(Link)`
   display: block;
   padding: 0;
   background: transparent;
-  color: ${props => props.active ? '#000' : '#999'};
+  color: ${props => props.active ? '#fff' : '#c2deff'};
   border: none;
   border-radius: 0;
   cursor: pointer;
   transition: color 0.3s;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
 
   &:hover {
-    color: #000;
+    color: #fff;
   }
 
   &:focus {
     outline: none;
   }
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 `
 
 class Nav extends React.Component {
-  setSide = (side) => (e) => {
-    this.props.uiActions.setSide(side)
-  }
-
   render () {
-    const { side } = this.props
+    const { section } = this.props.match.params
     return (
       <NavWrapper>
-        <Link active={side === 'front'} onClick={this.setSide('front')}>who.am.i</Link>
-        <Link active={side === 'right'} onClick={this.setSide('right')}>my.work</Link>
-        <Link active={side === 'left'} onClick={this.setSide('left')}>contact.me</Link>
-        <Link active={side === 'back'} onClick={this.setSide('back')}>my.friends</Link>
+        <StyledLink to='/about' active={section === 'about'}>История</StyledLink>
+        <StyledLink to='/mywork' active={section === 'mywork'}>Работы</StyledLink>
+        <StyledLink to='/contact' active={section === 'contact'}>Связь</StyledLink>
+        <StyledLink to='/friends' active={section === 'friends'}>Друзья</StyledLink>
       </NavWrapper>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  side: state.ui.side,
-})
-
-const mapDispatchToProps = dispatch => ({
-  uiActions: bindActionCreators(uiActions, dispatch),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Nav)
+export default withRouter(Nav)
