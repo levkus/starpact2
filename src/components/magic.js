@@ -1,17 +1,14 @@
 export const convertSectionNameToCubeSide = (section) => {
   let side
   switch (section) {
-    case 'about':
+    case 'story':
       side = 'front'
       break
-    case 'mywork':
+    case 'portfolio':
       side = 'right'
       break
     case 'contact':
       side = 'left'
-      break
-    case 'friends':
-      side = 'back'
       break
     default:
       side = 'front'

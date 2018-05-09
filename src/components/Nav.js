@@ -49,10 +49,9 @@ class Nav extends React.Component {
     const { section } = this.props.match.params
     return (
       <NavWrapper>
-        <StyledLink to='/about' active={section === 'about'}>История</StyledLink>
-        <StyledLink to='/mywork' active={section === 'mywork'}>Работы</StyledLink>
+        <StyledLink to='/story' active={section === 'story'}>История</StyledLink>
+        <StyledLink to='/portfolio' active={section === 'portfolio'}>Портфолио</StyledLink>
         <StyledLink to='/contact' active={section === 'contact'}>Связь</StyledLink>
-        <StyledLink to='/friends' active={section === 'friends'}>Друзья</StyledLink>
       </NavWrapper>
     )
   }

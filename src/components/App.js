@@ -21,9 +21,9 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path='/' component={() => <Redirect to='/about' />} />
+            <Route exact path='/' component={() => <Redirect to='/story' />} />
             <Route path='/:section' component={CubeWithNav} />
-            <Redirect to='/about' />
+            <Redirect to='/story' />
           </Switch>
         </Router>
       </Provider>

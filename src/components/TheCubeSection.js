@@ -1,4 +1,5 @@
 import React from 'react'
+import ContentContainer from './ContentContainer'
 import styled from 'styled-components'
 
 const Side = styled.div`
@@ -39,19 +40,18 @@ const Side = styled.div`
 `
 
 const Left = styled(Side)`
-  transform: translateX(150px) rotateY(90deg);
+  transform: rotateY(120deg) translateZ(200px);
+  /* background: rgba(255,0,255,0.5); */
 `
 
 const Front = styled(Side)`
-  transform: translateZ(150px);
+  transform: rotateY(0deg) translateZ(200px);
+  /* background: rgba(0, 255, 255, 0.5); */
 `
 
 const Right = styled(Side)`
-  transform: translateX(-150px) rotateY(270deg);
-`
-
-const Back = styled(Side)`
-  transform: translateZ(-150px) rotateY(180deg);
+  transform: rotateY(-120deg) translateZ(200px);
+  /* background: rgba(255, 255, 0, 0.5); */
 `
 
 const Section = styled.div`
@@ -61,13 +61,11 @@ const Section = styled.div`
   transform: rotateY(${props => {
     switch (props.side) {
       case 'left':
-        return '-90deg'
+        return '-120deg'
       case 'front':
         return '0deg'
       case 'right':
-        return '90deg'
-      case 'back':
-        return '180deg'
+        return '120deg'
       default:
         return '0deg'
     }
@@ -77,10 +75,21 @@ const Section = styled.div`
 
 const CubeSection = ({ className, border, side, left, front, right, back, main }) => (
   <Section side={side} className={className}>
-    <Left main={main} border={border} active={side === 'left'}>{left}</Left>
-    <Front main={main} border={border} active={side === 'front'}>{front}</Front>
-    <Right main={main} border={border} active={side === 'right'}>{right}</Right>
-    <Back main={main} border={border} active={side === 'back'}>{back}</Back>
+    <Left main={main} border={border} active={side === 'left'}>
+      <ContentContainer>
+        {left}
+      </ContentContainer>
+    </Left>
+    <Front main={main} border={border} active={side === 'front'}>
+      <ContentContainer>
+        {front}
+      </ContentContainer>
+    </Front>
+    <Right main={main} border={border} active={side === 'right'}>
+      <ContentContainer>
+        {right}
+      </ContentContainer>
+    </Right>
   </Section>
 )
 

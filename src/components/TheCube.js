@@ -6,7 +6,7 @@ import AboutMe from './AboutMe'
 import { convertSectionNameToCubeSide } from './magic'
 
 const TheCubeWrapper = styled.div`
-  width: 40vw;
+  width: 600px;
   transform: scaleX(0.5) scaleY(0.5) scaleZ(0.5);
   transform-style: preserve-3d;
   zoom: 2;
@@ -27,9 +27,13 @@ const Footer = styled(CubeSection)`
 `
 
 const MainSection = styled(CubeSection)`
-  height: calc(100vh - 300px);
+  height: 480px;
   transition-delay: 0.1s;
   font-size: 0.75rem;
+
+  @media (max-width: 1280px) {
+    height: 360px;
+  }
 `
 
 class TheCube extends React.Component {
@@ -52,14 +56,12 @@ class TheCube extends React.Component {
           left='Связь'
           right='Портфолио'
           front='История'
-          back='Мои друзья'
         />
         <MainSection
           side={this.state.side}
           left='text about my contacts'
           right='text about my work'
           front={<AboutMe />}
-          back='text about my friends'
           border=''
           main
         />
@@ -69,7 +71,6 @@ class TheCube extends React.Component {
           left='Если я не отвечаю, я сплю ;)'
           right='Моя работа - это я.'
           front='Я видел разное дерьмо...'
-          back='Люди, с которыми я работаю тащат!'
         />
       </TheCubeWrapper>
     )
