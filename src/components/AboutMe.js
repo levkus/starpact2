@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 
-const age = moment().diff(moment('21-08-1987', 'DD-MM-YYYY'), 'years')
+const age = moment().diff(moment('21-08-1987', 'DD-MM-YYYY'), 'years', false)
 
 const AboutMe = () => (
   <div>
@@ -12,15 +12,14 @@ const AboutMe = () => (
     <ul>
       <li>React</li>
       <li>Redux</li>
-      <li>GraphQL (React-Apollo)</li>
-      <li>jQuery</li>
+      <li>GraphQL</li>
       <li>Lodash</li>
       <li>GSAP</li>
       <li>PostCSS</li>
       <li>Webpack</li>
       <li>Styled Components</li>
     </ul>
-    <p>Например этот сайт работает на React.</p>
+    <p>Например этот сайт работает на React, Redux и Styled-Components.</p>
   </div>
 )
 

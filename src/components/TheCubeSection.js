@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Side = styled.div`
   opacity: ${props => props.active ? 1 : 0.3};
-  color: ${props => props.active ? 'inherit' : 'rgba(0, 0, 0, 0)'};
+  color: ${props => props.active ? '#c2deff' : 'rgba(0, 0, 0, 0)'};
   width: 100%;
   height: 100%;
   position: absolute;
@@ -12,7 +12,7 @@ const Side = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  transition: 0.5s;
+  transition: opacity 0.5s, color 0.7s ease-out;
   background-image: ${props => props.main ? 'radial-gradient(circle at top, rgba(35, 28, 37, 0.7) 20%, rgba(35, 28, 37, 0) 60%)' : 'none'};
   background-position: top center;
 
@@ -70,7 +70,7 @@ const Section = styled.div`
         return '0deg'
     }
   }});
-  transition: transform 0.5s;
+  transition: transform 0.7s;
 `
 
 const CubeSection = ({ className, border, side, left, front, right, back, main }) => (

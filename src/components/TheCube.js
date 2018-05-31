@@ -3,6 +3,7 @@ import { withRouter } from 'react-router'
 import styled from 'styled-components'
 import CubeSection from './TheCubeSection'
 import AboutMe from './AboutMe'
+import Works from './Works'
 import { convertSectionNameToCubeSide } from './magic'
 
 const TheCubeWrapper = styled.div`
@@ -18,12 +19,14 @@ const Header = styled(CubeSection)`
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 400;
+  text-align: center;
 `
 
 const Footer = styled(CubeSection)`
   height: 50px;
   transition-delay: 0.2s;
   font-size: 0.75rem;
+  text-align: center;
 `
 
 const MainSection = styled(CubeSection)`
@@ -60,7 +63,7 @@ class TheCube extends React.Component {
         <MainSection
           side={this.state.side}
           left='text about my contacts'
-          right='text about my work'
+          right={<Works />}
           front={<AboutMe />}
           border=''
           main

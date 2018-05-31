@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk';
 
-import uiReducer from './ui'
+import portfolioReducer from './portfolio'
 
 const reducers = combineReducers({
-  ui: uiReducer,
+  portfolio: portfolioReducer,
 })
 
 export default createStore(reducers, applyMiddleware(thunk))
